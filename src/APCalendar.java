@@ -5,6 +5,7 @@ public class APCalendar
         boolean x = year % 4 == 0;
         boolean y = year % 100 == 0;
         boolean z = year % 400 == 0;
+        if (year == 0) return false;
         return (x && !y) || z;
     }
     public static int numberOfLeapYears(int year1, int year2)
@@ -16,9 +17,9 @@ public class APCalendar
         }
         return years;
     }
-    private static int firstDayOfYear(int year)
+    public static int firstDayOfYear(int year)
     {
-        return 0;
+        return (year + numberOfLeapYears(0, year)) % 7;
     }
     private static int dayOfYear(int month, int day, int year)
     {
